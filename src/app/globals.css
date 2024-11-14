@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.burger-menu {
+  transition: transform .3s ease;
+}
+.burger-menu-disabled {
+  transform: translateX(-100vw);
+}
+.burger-menu-enabled {
+  transform: translateX(0);
+}

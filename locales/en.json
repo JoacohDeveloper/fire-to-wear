@@ -5,6 +5,27 @@
     },
     "HomePage":{
         "test": "Welcome to the paradise"
+    },
+    "BurgerMenu" : {
+        "title" : "Menu"
+    },
+    "Nav": {
+        "home": "Home",
+        "all-products" : "All Products",
+        "t-shirts" : "T-Shirts",
+        "shirts": "Shirts",
+        "jumpers": "Jumpers",
+        "pants": "Pants",
+        "jackets": "Jackets",
+        "accesories": "Accesories"
+    },
+    "Legal" : {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Services"
+    },
+    "Account" : {
+        "account" : "Account"
     }
+
 
 }

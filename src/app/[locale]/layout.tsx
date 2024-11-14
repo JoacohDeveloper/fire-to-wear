@@ -7,15 +7,14 @@ import {
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Jaldi } from "next/font/google";
-import { Metadata } from "next";
-import { title } from "process";
-
+import Header from "@/app/components/header";
+import "@/app/globals.css"
 const jaldi = Jaldi({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params: { locale} } : any) {
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return {
@@ -49,6 +48,7 @@ export default async function LocaleLayout({
     <html lang={await locale}>
       <body className={`${jaldi.className}`}>
         <NextIntlClientProvider messages={messages}>
+          <Header />
           {children}
         </NextIntlClientProvider>
       </body>
