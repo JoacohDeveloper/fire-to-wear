@@ -19,3 +19,26 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.burger-menu {
+  transition: transform 0.3s ease;
+}
+.burger-menu-disabled {
+  transform: translateX(-100vw);
+}
+.burger-menu-enabled {
+  transform: translateX(0);
+}
+
+.header-nav {
+  li {
+    a {
+      padding: 0.1rem 0.4rem;
+    }
+  }
+}
+
+.selectedPage {
+  border: 1px solid #4b4b4b;
+  border-radius: 0.4rem;
+}
