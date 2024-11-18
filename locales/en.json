@@ -18,6 +18,15 @@
         "pants": "Pants",
         "jackets": "Jackets",
         "accesories": "Accesories"
+        
+    },
+    "NavAccesories" : {
+        "belts" : "Belts",
+        "ties": "Ties",
+        "jewellery": "Jewellery",
+        "hats": "Hats",
+        "gloves": "Gloves",
+        "scarves": "Scarves"
     },
     "Legal" : {
         "privacy": "Privacy Policy",

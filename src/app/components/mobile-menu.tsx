@@ -25,9 +25,15 @@ export default function BrgMenu() {
         onClick={handleMenu}
         className="cursor-pointer w-[24px] h-[24px]"
       />
+      <div
+        onClick={handleMenu}
+        className={`absolute inset-0 ${
+          enabled ? "hidden" : "backdrop-blur-[2px]"
+        }`}
+      ></div>
 
       <div
-        className={`fixed min-sm:hidden burger-menu overflow-y-auto pb-10 inset-0 bg-white ${
+        className={`fixed min-sm:hidden z-20 burger-menu overflow-y-auto pb-10 min-[500px]:border-r  border-main_gray inset-0 bg-white ${
           enabled
             ? "burger-menu-disabled"
             : "burger-menu-enabled w-full min-[500px]:w-[70%]"

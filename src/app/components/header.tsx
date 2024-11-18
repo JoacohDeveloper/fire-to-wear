@@ -21,8 +21,6 @@ export default function Header() {
           <div className="sm:hidden">
             <BrgMenu />
           </div>
-
-          {/* <div className="flex invisible w-[24px] h-[24px]"></div> */}
         </div>
         <h3
           className={`${gf.className} uppercase font-bold text-[1.3rem] text-black text-center`}
@@ -35,7 +33,7 @@ export default function Header() {
               <Browser classname="cursor-pointer " />
             </div>
             <div className="max-sm:hidden">
-              <Account />
+              <Account className="cursor-pointer" />
             </div>
           </div>
           <Cart classname="cursor-pointer" />
