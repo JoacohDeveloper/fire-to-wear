@@ -19,7 +19,10 @@ export default function Header() {
         </div>
         <div className="menu flex basis-full gap-6">
           <div className="sm:hidden">
-            <BrgMenu />
+            <BrgMenu
+              Nav={<Nav classname="pl-12 flex-col mt-10" />}
+              productSearch={true}
+            />
           </div>
         </div>
         <h3

@@ -34,7 +34,24 @@
     },
     "Account" : {
         "account" : "Account"
+    },
+    "DashboardNav": {
+        "publish": "Publish Product",
+        "manage": "Manage Products"
+        
+    },
+
+    "Dashboard": {
+        "title": "Dashboard",
+        "hi": "Hi"
+    },
+    "Currency": {
+        "currency": "en-US"
+        
     }
+
+    
+
 
 
 }

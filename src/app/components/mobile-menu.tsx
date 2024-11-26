@@ -9,7 +9,13 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Browser from "./browser";
-export default function BrgMenu() {
+export default function BrgMenu({
+  Nav,
+  productSearch = false,
+}: {
+  Nav: React.ReactNode;
+  productSearch: boolean;
+}) {
   const [enabled, setEnabled] = useState(true);
   const handleMenu = () => {
     setEnabled((enabled) => !enabled);
@@ -50,13 +56,19 @@ export default function BrgMenu() {
             <p className="font-bold text-2xl max-w-fit text-main_dark">
               {t("title")}
             </p>
-            <div className="cursor-pointer min-[500px]:hidden flex items-center justify-between ">
-              <Browser classname="" />
-              <p className="text-main_gray">Search a product</p>
+            <div className="cursor-pointer min-[500px]:hidden ">
+              <div
+                className={`${
+                  productSearch ? "" : "hidden"
+                } flex items-center justify-between h-full`}
+              >
+                <Browser classname="" />
+                <p className="text-main_gray text-sm">Search a product</p>
+              </div>
             </div>
           </div>
 
-          <Nav classname="pl-12 flex-col mt-10" />
+          {Nav}
           <div className="flex w-full border-t border-secondary_gray mt-16">
             <ul className="flex flex-col text-main_gray mt-10 gap-6 pl-10">
               <li>

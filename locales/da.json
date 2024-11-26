@@ -5,5 +5,14 @@
     },
     "HomePage":{
         "test": "Velkommen til paradiset"
+    },
+    "Dashboard": {
+        "hi": "Hej"
+    },
+
+    "Currency": {
+        "currency": "da-DK"
     }
+    
+    
 }

@@ -15,6 +15,8 @@ const jaldi = Jaldi({
   subsets: ["latin"],
 });
 
+import { NextUIProvider } from "@nextui-org/react";
+
 export async function generateMetadata({
   params,
 }: {
@@ -55,8 +57,7 @@ export default async function LocaleLayout({
     <html lang={await locale}>
       <body className={`${jaldi.className}`}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
+          <NextUIProvider>{children}</NextUIProvider>
         </NextIntlClientProvider>
       </body>
     </html>
