@@ -15,7 +15,11 @@ import { Image } from "@nextui-org/react";
 
 import * as helpers from "@/helpers";
 
-export default function ProductPreview() {
+export default function ProductPreview({ formData }: { formData: any }) {
+  const imageFile = formData["images[]"][0];
+  let imageURL = null;
+  if (imageFile) imageURL = URL.createObjectURL(imageFile);
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -31,18 +35,24 @@ export default function ProductPreview() {
           <div className="flex justify-center flex-col items-center gap-3">
             <div className="w-1/2 h-auto cursor-pointer">
               <Image
-                src="https://res.cloudinary.com/dpecnnwh8/image/upload/v1732487738/bf9weyzxmrzgjkmu7ewa.webp"
+                src={`${
+                  imageURL
+                    ? imageURL
+                    : "https://res.cloudinary.com/dpecnnwh8/image/upload/v1732487738/bf9weyzxmrzgjkmu7ewa.webp"
+                }`}
                 width="500"
                 height="500"
-                alt="Black T-shirt"
+                alt={`${formData.title} - ${formData.category}`}
               />
             </div>
             <div className="w-1/2 cursor-pointer">
-              <p className="text-main_gray">Plain Classic Fit T-Shirt</p>
+              <p className="text-main_gray">
+                {formData.title ? formData.title : "no name"}
+              </p>
               <p>
                 {helpers.formatCurrency(
                   { currency: "da-US", format: "USD" },
-                  10.99
+                  formData?.price || 0.0
                 )}
               </p>
             </div>

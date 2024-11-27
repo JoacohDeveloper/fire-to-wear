@@ -30,56 +30,77 @@ const categoryies = [
   },
 ];
 
-export default function CategorySearch({ htmlFor }: { htmlFor: string }) {
+export default function CategorySearch({
+  htmlFor,
+  handleFormChange,
+  setFormData,
+  formData,
+}: {
+  htmlFor: string;
+  handleFormChange: any;
+  setFormData: any;
+  formData: any;
+}) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-[200px] justify-between"
-        >
-          {value
-            ? categoryies.find((category) => category.value === value)?.label
-            : "Select category..."}
-          <ChevronsUpDown className="opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput
-            placeholder="Search framework..."
-            className="h-9 w-full"
-          />
-          <CommandList>
-            <CommandEmpty>No Category Found.</CommandEmpty>
-            <CommandGroup>
-              {categoryies.map((category) => (
-                <CommandItem
-                  key={category.value}
-                  value={category.value}
-                  onSelect={(currentValue: any) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  {category.label}
-                  <Check
-                    className={cn(
-                      "ml-auto",
-                      value === category.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+    <>
+      <input
+        type="text"
+        name="category"
+        className="absolute invisible opacity-0"
+        value={value}
+        onChange={handleFormChange}
+      />
+
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-[200px] justify-between"
+          >
+            {value
+              ? categoryies.find((category) => category.value === value)?.label
+              : "Select category..."}
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-[200px] p-0">
+          <Command>
+            <CommandInput
+              placeholder="Search framework..."
+              className="h-9 w-full"
+            />
+            <CommandList>
+              <CommandEmpty>No Category Found.</CommandEmpty>
+              <CommandGroup>
+                {categoryies.map((category) => (
+                  <CommandItem
+                    key={category.value}
+                    value={category.value}
+                    onSelect={(currentValue: any) => {
+                      setValue(currentValue === value ? "" : currentValue);
+                      setOpen(false);
+                      setFormData({ ...formData, category: currentValue });
+                    }}
+                  >
+                    {category.label}
+                    <Check
+                      className={cn(
+                        "ml-auto",
+                        value === category.value ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+    </>
   );
 }
