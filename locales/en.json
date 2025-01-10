@@ -48,7 +48,15 @@
     "Currency": {
         "currency": "en-US"
         
+    },
+
+    "Product-Validation": {
+        "title": "Must be 5 or more characters long",
+        "category": "Must select a category",
+        "price": "Must be a number distinct to zero",
+        "description": "Must be 8 or more characters long"
     }
+
 
     
 

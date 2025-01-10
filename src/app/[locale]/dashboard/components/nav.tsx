@@ -23,7 +23,7 @@ export default function Nav({ classname }: { classname: string }) {
           <Link href={"/dashboard/products/create"}>{t("publish")}</Link>
         </li>
         <li>
-          <Link href={"/"}>{t("manage")}</Link>
+          <Link href={"/dashboard/products/"}>{t("manage")}</Link>
         </li>
       </ul>
     </nav>
